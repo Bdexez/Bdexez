@@ -11,6 +11,7 @@ can verify.
 
 ![C](https://img.shields.io/badge/C-00599C?logo=c&logoColor=white)
 ![C++](https://img.shields.io/badge/C++-00599C?logo=cplusplus&logoColor=white)
+![Vulkan](https://img.shields.io/badge/Vulkan-AC162C?logo=vulkan&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
 ![NestJS](https://img.shields.io/badge/NestJS-E0234E?logo=nestjs&logoColor=white)
@@ -34,6 +35,25 @@ list its limitations is hiding some.
 ---
 
 ## 🔧 Projects
+
+### 🎞️ [bdex-framegen — frame generation for Vulkan](https://github.com/Bdexez/bdex_frame_gen)
+
+`C++20` · `Vulkan` · `GLSL` · `Linux`
+
+An implicit Vulkan layer that turns 30 rendered fps into 60, 90 or 120 displayed
+fps, on any Vulkan game — native, or Direct3D through DXVK / VKD3D-Proton. No
+change to the game.
+
+- **Virtual swapchain**: the game renders into private images, the layer owns the
+  real swapchain and decides what to present and when
+- **The game is never blocked** — `vkQueuePresentKHR` costs it ≈ 0.1 ms; the
+  synthesis runs on a dedicated thread and a separate compute queue
+- Five compute shaders, no CPU round trip: luma pyramid, hierarchical block
+  matching, median filter, 4×4 refinement, bidirectional warping
+- **≈ 30 dB PSNR** against the real frame, against ≈ 25 dB for a blend and
+  ≈ 22 dB for frame duplication — measured, not asserted
+- Clean under `VK_LAYER_KHRONOS_validation`, synchronization validation included
+- When the motion cannot be explained, it shows the real frame rather than a blend
 
 ### 🩺 [BAD — Bdex Anomaly Detector](https://github.com/Bdexez/BAD_-Bdex_Anomaly_Detector-)
 
@@ -92,6 +112,7 @@ reports.
 | | |
 |---|---|
 | **Languages** | C · C++ · x86-64 · Python · TypeScript · SQL · Dart |
+| **Graphics** | Vulkan · GLSL compute · Vulkan layers · CMake |
 | **Backend** | NestJS · Node.js · Prisma · PostgreSQL · SQLite · REST · OpenAPI |
 | **Front** | React · Vite · Flutter |
 | **Data** | NumPy · pandas · calibration · walk-forward backtest · Streamlit |
@@ -101,9 +122,9 @@ reports.
 
 ## 📍 Right now
 
-I'm working on the model stage of **BAD** and on feeding real data into
-**cs2edge**. Happy to talk about low-level Linux, probabilistic modelling and
-anything to do with measurement.
+I'm polishing **bdex-framegen** on real games, working on the model stage of
+**BAD** and feeding real data into **cs2edge**. Happy to talk about low-level
+Linux, Vulkan, probabilistic modelling and anything to do with measurement.
 
 <div align="center">
 <sub>📫 <a href="https://linkedin.com/in/elian-marzari">LinkedIn</a></sub>
