@@ -2,10 +2,10 @@
 
 # Bdex
 
-**Développeur — du compteur matériel à l'API métier.**
+**Developer — from the hardware counter to the business API.**
 
-Étudiant en 3ᵉ année à Epitech. Je construis des systèmes qu'on peut mesurer
-et des modèles qu'on peut vérifier.
+Third-year student at Epitech. I build systems you can measure and models you
+can verify.
 
 <br>
 
@@ -24,65 +24,66 @@ et des modèles qu'on peut vérifier.
 
 ---
 
-## 🧭 Ce qui traverse mes projets
+## 🧭 What runs through my projects
 
-Une même règle, du bas niveau jusqu'à la donnée : **ne jamais inventer ce qu'on
-n'a pas mesuré.** Un capteur absent ne vaut pas zéro, il vaut `NULL`. Un modèle
-qui annonce 70 % doit gagner 70 fois sur 100, et le prouver. Un dépôt qui ne
-liste pas ses limites en cache.
+One rule, from the lowest level up to the data: **never invent what you haven't
+measured.** A missing sensor is not zero, it is `NULL`. A model that announces
+70 % has to win 70 times out of 100, and prove it. A repository that doesn't
+list its limitations is hiding some.
 
 ---
 
-## 🔧 Projets
+## 🔧 Projects
 
 ### 🩺 [BAD — Bdex Anomaly Detector](https://github.com/Bdexez/BAD_-Bdex_Anomaly_Detector-)
 
 `Python` · `Linux` · `SQLite`
 
-Télémétrie matérielle à 1 Hz sous Linux, pour construire un dataset labellisé et
-y entraîner un détecteur d'anomalies — ventirad encrassé, flux d'air obstrué,
-overclock instable.
+Hardware telemetry at 1 Hz on Linux, to build a labelled dataset and train an
+anomaly detector on it — clogged heatsink, blocked airflow, unstable overclock.
 
-- **Zéro dépendance obligatoire** — `/proc`, `/sys` et la stdlib suffisent
-- 13 readers indépendants (k10temp, amdgpu, NVML, NVMe, RAPL, PSI, kmsg…) ;
-  une source absente se désactive au lieu de polluer la base
-- Détection d'erreurs à **trois étages** : 38 règles de classement kernel
-  déclarées en données, un attrape-tout sur les priorités ≤ 3, et des compteurs
-  matériels qui attrapent ce que le noyau compte sans le journaliser
-- `--doctor` dit ce que la machine permet de détecter **et ce qu'elle ne permet pas**
+- **Zero mandatory dependency** — `/proc`, `/sys` and the standard library are enough
+- 13 independent readers (k10temp, amdgpu, NVML, NVMe, RAPL, PSI, kmsg…);
+  a missing source disables itself instead of filling the database with nulls
+- **Three-stage** error detection: 38 kernel classification rules declared as
+  data, a catch-all on priorities ≤ 3, and hardware counters that catch what the
+  kernel counts without necessarily logging
+- `--doctor` reports what the machine makes it possible to detect **and what it does not**
 
-### 🎯 [cs2edge — pronostiqueur calibré](https://github.com/Bdexez/CS_S)
+### 🎯 [cs2edge — calibrated tipster](https://github.com/Bdexez/CS_S)
 
 `Python` · `NumPy`
 
-Modèle probabiliste d'issue de matchs, construit autour d'une contrainte
-vérifiable : quand il annonce 70 %, l'équipe gagne environ 70 fois sur 100.
+Probabilistic model of match outcomes, built around a verifiable constraint:
+when it announces 70 %, the team wins roughly 70 times out of 100.
 
-- **Cœur en NumPy seul** — régression logistique ridge résolue par IRLS,
-  calibration par température, pipeline écrit à la main
-- Antisymétrie garantie par construction : `p(A bat B) + p(B bat A) = 1` à la
-  précision machine
-- **Backtest walk-forward** — une validation croisée aléatoire donnerait des
-  scores bien meilleurs et entièrement faux
-- **S'abstient sur 17 % des matchs** : un pronostiqueur qui se prononce sur tout
-  ne permet pas de distinguer ses convictions de ses devinettes
-- La mesure a façonné le produit : un palier supprimé parce qu'il mentait sur
-  62 observations, une marginale recalibrée qui a ramené l'écart de +10,5 % à +2,0 %
+- **NumPy-only core** — ridge logistic regression solved by IRLS, temperature
+  calibration, pipeline written by hand
+- Antisymmetry guaranteed by construction: `p(A beats B) + p(B beats A) = 1` to
+  machine precision
+- **Walk-forward backtest** — a random cross-validation would give far better
+  scores, and entirely false ones
+- **Abstains on 17 % of matches**: a tipster who has an opinion on everything
+  gives you no way to tell convictions from guesses
+- Measurement shaped the product: a tier removed because it lied on 62
+  observations, a marginal recalibrated which brought the gap from +10.5 % down
+  to +2.0 %
 
 ### 🏢 [Up Network — ERP / CRM](https://github.com/Bdexez/up_network2.0)
 
 `NestJS` · `Prisma` · `PostgreSQL` · `React` · `TypeScript`
 
-Suite de gestion multi-société pour PME, développée pendant six mois en stage :
-CRM, cycle de vente, achats & stock, projets, RH et états comptables.
+Multi-company management suite for SMEs, developed over six months during an
+internship: CRM, sales cycle, purchasing & stock, projects, HR and accounting
+reports.
 
-- **10 modules** · **84 permissions** appliquées côté serveur · **34 modèles
-  Prisma** · **128 tests** unitaires
-- La société active vient du jeton, jamais du client — aucune route n'accepte
-  de `?companyId=`
-- Devis → commande → facture → règlement, avec avoirs, multi-devises et
-  documents figés protégés par verrou optimiste
-- États réglementaires français : balance âgée, TVA par taux, export FEC
+- **10 modules** · **84 permissions** enforced server-side · **34 Prisma
+  models** · **128** unit tests
+- The active company comes from the token, never from the client — no route
+  accepts a `?companyId=`
+- Quote → order → invoice → payment, with credit notes, multi-currency and
+  frozen documents protected by an optimistic lock
+- French regulatory reports: aged balance, VAT by rate, FEC export
 
 ---
 
@@ -90,19 +91,19 @@ CRM, cycle de vente, achats & stock, projets, RH et états comptables.
 
 | | |
 |---|---|
-| **Langages** | C · C++ · x86-64 · Python · TypeScript · SQL · Dart |
+| **Languages** | C · C++ · x86-64 · Python · TypeScript · SQL · Dart |
 | **Backend** | NestJS · Node.js · Prisma · PostgreSQL · SQLite · REST · OpenAPI |
 | **Front** | React · Vite · Flutter |
-| **Data** | NumPy · pandas · calibration · backtest walk-forward · Streamlit |
-| **Systèmes** | Linux · sysfs/procfs · systemd · Docker · Git |
+| **Data** | NumPy · pandas · calibration · walk-forward backtest · Streamlit |
+| **Systems** | Linux · sysfs/procfs · systemd · Docker · Git |
 
 ---
 
-## 📍 En ce moment
+## 📍 Right now
 
-Je travaille l'étage modèle de **BAD** et l'intégration de données réelles dans
-**cs2edge**. Ouvert aux échanges sur le bas niveau Linux, la modélisation
-probabiliste et tout ce qui touche à la mesure.
+I'm working on the model stage of **BAD** and on feeding real data into
+**cs2edge**. Happy to talk about low-level Linux, probabilistic modelling and
+anything to do with measurement.
 
 <div align="center">
 <sub>📫 <a href="https://linkedin.com/in/elian-marzari">LinkedIn</a></sub>
