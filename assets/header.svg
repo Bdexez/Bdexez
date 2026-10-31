@@ -15,13 +15,13 @@
     <rect x="52" y="50" width="6" height="17" rx="3" fill="#7EE7C4"/>
     <text x="72" y="64" fill="#A7BCC9" font-family="DejaVu Sans, sans-serif" font-size="14" letter-spacing="3">BDEX / SOFTWARE DEVELOPER</text>
     <text x="52" y="159" fill="#F0F6FC" font-family="DejaVu Sans, sans-serif" font-size="63" font-weight="700" letter-spacing="-2.5">Elian Marzari<tspan fill="#7EE7C4">.</tspan></text>
-    <text x="55" y="209" fill="#AFBFCD" font-family="DejaVu Sans, sans-serif" font-size="23">Systems. Graphics. Applied machine learning.</text>
+    <text x="55" y="209" fill="#AFBFCD" font-family="DejaVu Sans, sans-serif" font-size="22">Python, AI &amp; neural networks. Systems &amp; graphics.</text>
     <path d="M54 250H716" stroke="#2A3B49"/>
     <text x="55" y="291" fill="#7EE7C4" font-family="DejaVu Sans Mono, monospace" font-size="15">C / C++</text>
     <text x="197" y="291" fill="#8599AA" font-family="DejaVu Sans Mono, monospace" font-size="15">VULKAN</text>
-    <text x="330" y="291" fill="#8599AA" font-family="DejaVu Sans Mono, monospace" font-size="15">PYTHON</text>
+    <text x="330" y="291" fill="#7EE7C4" font-family="DejaVu Sans Mono, monospace" font-size="15">PYTHON</text>
     <text x="463" y="291" fill="#8599AA" font-family="DejaVu Sans Mono, monospace" font-size="15">TYPESCRIPT</text>
-    <text x="55" y="354" fill="#728799" font-family="DejaVu Sans, sans-serif" font-size="13" letter-spacing="1.8">EPITECH · THIRD YEAR</text>
+    <text x="55" y="354" fill="#7EE7C4" font-family="DejaVu Sans, sans-serif" font-size="13" letter-spacing="1.8">PYTHON · AI · NEURAL NETWORKS</text>
     <text x="816" y="64" fill="#728F9F" font-family="DejaVu Sans Mono, monospace" font-size="12" letter-spacing="2">BETWEEN TWO FRAMES</text>
     <rect x="815" y="113" width="140" height="147" rx="12" fill="url(#panel)" stroke="#385565"/>
     <path d="M831 235H938M831 211H938M831 187H938M831 163H938" stroke="#31505E" stroke-opacity=".5"/>
