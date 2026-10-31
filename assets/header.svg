@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1280" height="400" viewBox="0 0 1280 400" fill="none" role="img" aria-labelledby="title desc">
-  <title id="title">Elian Marzari — Bdex</title>
+  <title id="title">Bdex</title>
   <desc id="desc">Software developer. Systems, real-time graphics and applied machine learning. A sequence of three frames illustrates motion interpolation.</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1280" y2="400" gradientUnits="userSpaceOnUse"><stop stop-color="#101D2B"/><stop offset="1" stop-color="#0B111A"/></linearGradient>
@@ -14,7 +14,7 @@
     <path d="M0 399H1280" stroke="#263A47"/>
     <rect x="52" y="50" width="6" height="17" rx="3" fill="#7EE7C4"/>
     <text x="72" y="64" fill="#A7BCC9" font-family="DejaVu Sans, sans-serif" font-size="14" letter-spacing="3">BDEX / SOFTWARE DEVELOPER</text>
-    <text x="52" y="159" fill="#F0F6FC" font-family="DejaVu Sans, sans-serif" font-size="63" font-weight="700" letter-spacing="-2.5">Elian Marzari<tspan fill="#7EE7C4">.</tspan></text>
+    <text x="52" y="159" fill="#F0F6FC" font-family="DejaVu Sans, sans-serif" font-size="63" font-weight="700" letter-spacing="-2.5">Bdex<tspan fill="#7EE7C4">.</tspan></text>
     <text x="55" y="209" fill="#AFBFCD" font-family="DejaVu Sans, sans-serif" font-size="22">Python, AI &amp; neural networks. Systems &amp; graphics.</text>
     <path d="M54 250H716" stroke="#2A3B49"/>
     <text x="55" y="291" fill="#7EE7C4" font-family="DejaVu Sans Mono, monospace" font-size="15">C / C++</text>
