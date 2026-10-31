@@ -2,96 +2,100 @@
   <img src="./assets/header.svg?v=4" width="100%" alt="Bdex — Python, artificial intelligence, neural networks, C/C++, graphics and systems.">
 </p>
 
-<p align="center"><a href="#python--artificial-intelligence">Python &amp; AI</a> &nbsp; · &nbsp; <a href="#projects">Projects</a> &nbsp; · &nbsp; <a href="#technical-stack">Technical stack</a></p>
+<p align="center">
+  <a href="#python-artificial-intelligence--neural-networks">Python &amp; AI</a>
+  &nbsp; · &nbsp;
+  <a href="#real-time-graphics--systems">Graphics &amp; systems</a>
+  &nbsp; · &nbsp;
+  <a href="#full-stack-development">Full-stack</a>
+  &nbsp; · &nbsp;
+  <a href="#technical-stack">Technical stack</a>
+</p>
 
 <br>
 
-I'm **Bdex**. I develop in **Python, C/C++ and TypeScript**, working on **artificial intelligence, neural networks, Linux systems, real-time graphics and full-stack applications**.
+I'm **Bdex**. I develop in **Python, C/C++ and TypeScript**, with projects in **artificial intelligence, neural networks, local LLM agents, real-time graphics and full-stack software**.
 
-## Python & artificial intelligence
+My work ranges from implementing learning algorithms and building AI assistants to generating frames on the GPU and developing business applications. Below is what each project does and how I approach its implementation.
 
-My work includes **two AI projects, including a neural-network project**. Python is a core language in my work, from probabilistic modelling and model evaluation to hardware data collection.
+## Python, artificial intelligence & neural networks
 
-## Projects
+### Sensai — Local AI tutor and study assistant
 
-<sub>The source repositories for the projects below are currently private.</sub>
+`Python` · `LLMs` · `Ollama` · `RAG` · `SQLite`
 
-### bdex-framegen — Frame generation for Vulkan
+A language-learning assistant available in the terminal and through its **Duolingoy** web interface. It generates short exercises, corrects mistakes, remembers learner progress and can turn course material into revision sheets and Python quizzes.
+
+- **Local LLM integration:** direct calls to Ollama's HTTP API, streamed responses, conversation history and a managed context budget, without an LLM orchestration framework.
+- **Document-grounded answers:** a RAG pipeline indexes lessons and retrieves relevant passages using embeddings, cosine similarity, BM25, metadata filters and reranking.
+- **Persistent learning memory:** SQLite stores sessions, vocabulary, recurring mistakes and spaced-repetition progress.
+- **Agent capabilities:** a ReAct loop can read permitted files, prepare materials and test generated Python exercises, with action confirmations, execution limits and observability.
+
+### MyTorch — Neural-network library from scratch
+
+`Python` · `NumPy` · `Neural networks` · **In progress**
+
+A neural-network library implemented from first principles to deepen my understanding of machine learning. The focus is on implementing the underlying mechanisms and understanding how models are built and evaluated.
+
+This work combines **Python/NumPy implementation** with study of the machine-learning literature. It is an ongoing project focused on neural-network fundamentals, alongside my application-oriented AI projects.
+
+### cs2edge — Calibrated CS2 match prediction
+
+`Python` · `NumPy` · `Machine learning` · `Probability calibration`
+
+A probabilistic model that estimates the outcome of professional CS2 matches. Its central question is whether its stated confidence matches observed outcomes: predictions around 70% should correspond to wins around 70% of the time.
+
+- **Model implemented by hand:** ridge logistic regression solved with IRLS, followed by temperature calibration, using a NumPy-only core.
+- **Consistent probabilities:** the model enforces the relationship between the two opposing outcomes, so their probabilities sum to one.
+- **Chronological evaluation:** walk-forward backtesting trains on earlier matches and evaluates later ones, preserving the order in which information becomes available.
+- **Selective predictions:** the system can abstain when confidence is insufficient and records its predictions to compare announced probabilities with actual results.
+
+### BAD — Linux telemetry for hardware anomaly detection
+
+`Python` · `SQLite` · `Linux` · `Data collection`
+
+A hardware telemetry collector designed to build labelled datasets for anomaly detection: obstructed airflow, cooling problems or unstable overclocks. The implemented collection stage supplies the contextual data needed before training a detection model.
+
+- **Multi-source collection:** independent readers gather sensor values, hardware counters and kernel events through Linux interfaces such as `/proc` and `/sys`.
+- **Resilient acquisition:** unavailable sources disable themselves; the collector keeps running when a sensor is missing.
+- **Error analysis:** kernel classification rules and hardware counters capture complementary evidence of faults.
+- **Explicit coverage:** a diagnostic command explains which sources the machine exposes and which problems can or cannot be observed. The collector has no mandatory third-party dependencies.
+
+## Real-time graphics & systems
+
+### bdex-framegen — Frame generation for Vulkan games on Linux
 
 `C++20` · `Vulkan` · `GLSL` · `Linux`
 
-An implicit Vulkan layer that turns 30 rendered fps into 60, 90 or 120 displayed
-fps, on any Vulkan game — native, or Direct3D through DXVK / VKD3D-Proton. No
-change to the game.
+An implicit Vulkan layer that sits between a game and the graphics driver. It estimates motion between rendered frames and synthesizes intermediate images to improve displayed fluidity, without changing the game's code. It targets native Vulkan games and Direct3D games translated through DXVK or VKD3D-Proton.
 
-- **Virtual swapchain**: the game renders into private images, the layer owns the
-  real swapchain and decides what to present and when
-- **The game is never blocked** — `vkQueuePresentKHR` costs it ≈ 0.1 ms; the
-  synthesis runs on a dedicated thread and a separate compute queue
-- Five compute shaders, no CPU round trip: luma pyramid, hierarchical block
-  matching, median filter, 4×4 refinement, bidirectional warping
-- **≈ 30 dB PSNR** against the real frame, against ≈ 25 dB for a blend and
-  ≈ 22 dB for frame duplication — measured, not asserted
-- Clean under `VK_LAYER_KHRONOS_validation`, synchronization validation included
-- When the motion cannot be explained, it shows the real frame rather than a blend
+- **Presentation control:** a virtual swapchain separates the images the game renders from the real swapchain presented to the display.
+- **GPU image processing:** compute shaders build a luma pyramid, estimate optical flow with hierarchical block matching, refine motion and synthesize images with bidirectional warping.
+- **Separate presentation work:** a dedicated thread handles presentation and pacing; a separate compute queue is used when available.
+- **Quality and correctness:** generated frames are compared with real frames and simple baselines; Vulkan validation, synchronization checks and scene-cut handling help identify rendering errors and interpolation limits.
 
-### BAD — Bdex Anomaly Detector
+## Full-stack development
 
-`Python` · `Linux` · `SQLite`
+### Up Network — Multi-company ERP / CRM
 
-Hardware telemetry at 1 Hz on Linux, to build a labelled dataset and train an
-anomaly detector on it — clogged heatsink, blocked airflow, unstable overclock.
+`TypeScript` · `NestJS` · `React` · `Prisma` · `PostgreSQL`
 
-- **Zero mandatory dependency** — `/proc`, `/sys` and the standard library are enough
-- 13 independent readers (k10temp, amdgpu, NVML, NVMe, RAPL, PSI, kmsg…);
-  a missing source disables itself instead of filling the database with nulls
-- **Three-stage** error detection: 38 kernel classification rules declared as
-  data, a catch-all on priorities ≤ 3, and hardware counters that catch what the
-  kernel counts without necessarily logging
-- `--doctor` reports what the machine makes it possible to detect **and what it does not**
+A management suite for SMEs, developed during a six-month internship. It covers customer relationships, sales, purchasing, inventory, projects, HR and accounting reports, with several companies operating within the same application.
 
-### cs2edge — Calibrated CS2 predictions
-
-`Python` · `NumPy`
-
-Probabilistic model of match outcomes, built around a verifiable constraint:
-when it announces 70 %, the team wins roughly 70 times out of 100.
-
-- **NumPy-only core** — ridge logistic regression solved by IRLS, temperature
-  calibration, pipeline written by hand
-- Antisymmetry guaranteed by construction: `p(A beats B) + p(B beats A) = 1` to
-  machine precision
-- **Walk-forward backtest** — a random cross-validation would give far better
-  scores, and entirely false ones
-- **Abstains on 17 % of matches**: a tipster who has an opinion on everything
-  gives you no way to tell convictions from guesses
-- Measurement shaped the product: a tier removed because it lied on 62
-  observations, a marginal recalibrated which brought the gap from +10.5 % down
-  to +2.0 %
-
-### Up Network — ERP / CRM
-
-`NestJS` · `Prisma` · `PostgreSQL` · `React` · `TypeScript`
-
-Multi-company management suite for SMEs, developed over six months during an
-internship: CRM, sales cycle, purchasing & stock, projects, HR and accounting
-reports.
-
-- **10 modules** · **84 permissions** enforced server-side · **34 Prisma
-  models** · **128** unit tests
-- The active company comes from the token, never from the client — no route
-  accepts a `?companyId=`
-- Quote → order → invoice → payment, with credit notes, multi-currency and
-  frozen documents protected by an optimistic lock
-- French regulatory reports: aged balance, VAT by rate, FEC export
-
+- **Complete business workflows:** quotes progress into orders, invoices and payments, with credit notes and multi-currency support.
+- **Backend access control:** permissions are enforced server-side and the active company comes from the authenticated token.
+- **Data consistency:** PostgreSQL and Prisma model the business entities; optimistic locking protects finalized documents against conflicting changes.
+- **Delivery and validation:** a React interface, documented REST API, unit tests and reporting features including aged balances, VAT breakdowns and FEC export.
 
 ## Technical stack
 
 | Area | Technologies & concepts |
 | :--- | :--- |
-| **Python & data** | **Python** · NumPy · pandas · SQLite · Streamlit |
-| **Artificial intelligence** | **AI · Neural networks** · Probabilistic modelling · Calibration · Walk-forward backtesting |
+| **Python** | Python · NumPy · pandas · SQLite · Streamlit |
+| **Artificial intelligence** | Neural networks · Machine learning · Probabilistic modelling · Calibration · Walk-forward evaluation |
+| **LLMs & agents** | Ollama · RAG · Embeddings · BM25 · Reranking · ReAct · Context management |
 | **Systems & graphics** | C · C++ · Vulkan · GLSL compute · Linux · CMake |
 | **Web & backend** | TypeScript · React · NestJS · Node.js · Prisma · PostgreSQL · REST APIs |
-| **Development** | Git · Docker · systemd |
+| **Tools** | Git · Docker · systemd |
+
+<sub>Project descriptions are provided here while their source repositories remain private.</sub>
