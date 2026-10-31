@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/header.svg" width="100%" alt="Elian Marzari — Bdex. Software developer working on systems, real-time graphics and applied machine learning.">
+  <img src="./assets/header.svg" width="100%" alt="Elian Marzari — Bdex. Software developer working with Python, AI, neural networks, systems and real-time graphics.">
 </p>
 
 <p align="center">
@@ -12,7 +12,7 @@
 
 <br>
 
-I'm **Elian**, a third-year student at **Epitech**. I build software across Linux systems, real-time graphics, applied machine learning and full-stack applications.
+I'm **Elian**, a developer working with **Python, artificial intelligence and neural networks**, alongside **C/C++**, Linux systems, real-time graphics and full-stack applications.
 
 I like understanding the whole path: how a frame reaches the display, how a sensor becomes useful data, and how a backend keeps a business workflow consistent.
 
