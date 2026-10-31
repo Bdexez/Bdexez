@@ -3,9 +3,9 @@
 </p>
 
 <p align="center">
-  <a href="#python-artificial-intelligence--neural-networks">Python &amp; AI</a>
+  <a href="#real-time-graphics--systems">Framegen</a>
   &nbsp; · &nbsp;
-  <a href="#real-time-graphics--systems">Graphics &amp; systems</a>
+  <a href="#python-artificial-intelligence--neural-networks">Python &amp; AI</a>
   &nbsp; · &nbsp;
   <a href="#full-stack-development">Full-stack</a>
   &nbsp; · &nbsp;
@@ -17,6 +17,19 @@
 I'm **Bdex**. I develop in **Python, C/C++ and TypeScript**, with projects in **artificial intelligence, neural networks, local LLM agents, real-time graphics and full-stack software**.
 
 My work ranges from implementing learning algorithms and building AI assistants to generating frames on the GPU and developing business applications. Below is what each project does and how I approach its implementation.
+
+## Real-time graphics & systems
+
+### bdex-framegen — Frame generation for Vulkan games on Linux
+
+`C++20` · `Vulkan` · `GLSL` · `Linux`
+
+An implicit Vulkan layer that sits between a game and the graphics driver. It estimates motion between rendered frames and synthesizes intermediate images to improve displayed fluidity, without changing the game's code. It targets native Vulkan games and Direct3D games translated through DXVK or VKD3D-Proton.
+
+- **Presentation control:** a virtual swapchain separates the images the game renders from the real swapchain presented to the display.
+- **GPU image processing:** compute shaders build a luma pyramid, estimate optical flow with hierarchical block matching, refine motion and synthesize images with bidirectional warping.
+- **Separate presentation work:** a dedicated thread handles presentation and pacing; a separate compute queue is used when available.
+- **Quality and correctness:** generated frames are compared with real frames and simple baselines; Vulkan validation, synchronization checks and scene-cut handling help identify rendering errors and interpolation limits.
 
 ## Python, artificial intelligence & neural networks
 
@@ -60,19 +73,6 @@ A hardware telemetry collector designed to build labelled datasets for anomaly d
 - **Resilient acquisition:** unavailable sources disable themselves; the collector keeps running when a sensor is missing.
 - **Error analysis:** kernel classification rules and hardware counters capture complementary evidence of faults.
 - **Explicit coverage:** a diagnostic command explains which sources the machine exposes and which problems can or cannot be observed. The collector has no mandatory third-party dependencies.
-
-## Real-time graphics & systems
-
-### bdex-framegen — Frame generation for Vulkan games on Linux
-
-`C++20` · `Vulkan` · `GLSL` · `Linux`
-
-An implicit Vulkan layer that sits between a game and the graphics driver. It estimates motion between rendered frames and synthesizes intermediate images to improve displayed fluidity, without changing the game's code. It targets native Vulkan games and Direct3D games translated through DXVK or VKD3D-Proton.
-
-- **Presentation control:** a virtual swapchain separates the images the game renders from the real swapchain presented to the display.
-- **GPU image processing:** compute shaders build a luma pyramid, estimate optical flow with hierarchical block matching, refine motion and synthesize images with bidirectional warping.
-- **Separate presentation work:** a dedicated thread handles presentation and pacing; a separate compute queue is used when available.
-- **Quality and correctness:** generated frames are compared with real frames and simple baselines; Vulkan validation, synchronization checks and scene-cut handling help identify rendering errors and interpolation limits.
 
 ## Full-stack development
 
