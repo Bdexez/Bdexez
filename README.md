@@ -1,87 +1,97 @@
 <p align="center">
-  <img src="./assets/header.svg?v=3" width="100%" alt="Bdex. Software developer working with Python, AI, neural networks, systems and real-time graphics.">
+  <img src="./assets/header.svg?v=4" width="100%" alt="Bdex — Python, artificial intelligence, neural networks, C/C++, graphics and systems.">
 </p>
 
-<p align="center">
-  <a href="https://github.com/Bdexez">GitHub</a>
-  &nbsp; · &nbsp;
-  <a href="#selected-work">Selected work</a>
-  &nbsp; · &nbsp;
-  <a href="#toolbox">Toolbox</a>
-</p>
+<p align="center"><a href="#python--artificial-intelligence">Python &amp; AI</a> &nbsp; · &nbsp; <a href="#projects">Projects</a> &nbsp; · &nbsp; <a href="#technical-stack">Technical stack</a></p>
 
 <br>
 
-I'm **Bdex**, a developer working with **Python, artificial intelligence and neural networks**, alongside **C/C++**, Linux systems, real-time graphics and full-stack applications.
+I'm **Bdex**. I develop in **Python, C/C++ and TypeScript**, working on **artificial intelligence, neural networks, Linux systems, real-time graphics and full-stack applications**.
 
-I like understanding the whole path: how a frame reaches the display, how a sensor becomes useful data, and how a backend keeps a business workflow consistent.
+## Python & artificial intelligence
 
-## Selected work
+My work includes **two AI projects, including a neural-network project**. Python is a core language in my work, from probabilistic modelling and model evaluation to hardware data collection.
 
-<sub>The projects below are currently private. These summaries highlight their engineering focus.</sub>
+## Projects
 
-<br><br>
+<sub>The source repositories for the projects below are currently private.</sub>
 
-<table>
-<tr>
-<td width="50%" valign="top">
-<sub>01 / REAL-TIME GRAPHICS</sub>
-<h3>bdex-framegen</h3>
-<p><strong>Frame generation for Vulkan games on Linux.</strong></p>
-<p>An implicit Vulkan layer that estimates motion and synthesizes intermediate frames without changing the game.</p>
-<p>Virtual swapchain, GPU compute shaders and dedicated presentation threading.</p>
-<p><code>C++20</code> <code>Vulkan</code> <code>GLSL</code> <code>Linux</code></p>
-</td>
-<td width="50%" valign="top">
-<sub>02 / SYSTEMS &amp; TELEMETRY</sub>
-<h3>BAD · Bdex Anomaly Detector</h3>
-<p><strong>Hardware telemetry with detection limits made explicit.</strong></p>
-<p>A Linux collector for building labelled datasets and developing hardware anomaly detection.</p>
-<p>Independent sensor readers, kernel error classification and diagnostics for missing sources.</p>
-<p><code>Python</code> <code>SQLite</code> <code>procfs</code> <code>sysfs</code></p>
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
-<sub>03 / APPLIED MACHINE LEARNING</sub>
-<h3>cs2edge</h3>
-<p><strong>CS2 match predictions built around calibration.</strong></p>
-<p>A probabilistic model that estimates match outcomes, evaluates its predictions and can abstain when confidence is insufficient.</p>
-<p>Logistic regression, probability calibration and chronological walk-forward backtesting.</p>
-<p><code>Python</code> <code>NumPy</code> <code>Statistics</code></p>
-</td>
-<td width="50%" valign="top">
-<sub>04 / FULL-STACK DEVELOPMENT</sub>
-<h3>Up Network</h3>
-<p><strong>A multi-company ERP / CRM for SMEs.</strong></p>
-<p>Built during a six-month internship: customer management, sales, purchasing, inventory and business reporting.</p>
-<p>Server-side permissions, company isolation and a quote-to-payment workflow.</p>
-<p><code>TypeScript</code> <code>NestJS</code> <code>React</code> <code>PostgreSQL</code></p>
-</td>
-</tr>
-</table>
+### bdex-framegen — Frame generation for Vulkan
 
-## Toolbox
+`C++20` · `Vulkan` · `GLSL` · `Linux`
 
-| Area | Technologies |
+An implicit Vulkan layer that turns 30 rendered fps into 60, 90 or 120 displayed
+fps, on any Vulkan game — native, or Direct3D through DXVK / VKD3D-Proton. No
+change to the game.
+
+- **Virtual swapchain**: the game renders into private images, the layer owns the
+  real swapchain and decides what to present and when
+- **The game is never blocked** — `vkQueuePresentKHR` costs it ≈ 0.1 ms; the
+  synthesis runs on a dedicated thread and a separate compute queue
+- Five compute shaders, no CPU round trip: luma pyramid, hierarchical block
+  matching, median filter, 4×4 refinement, bidirectional warping
+- **≈ 30 dB PSNR** against the real frame, against ≈ 25 dB for a blend and
+  ≈ 22 dB for frame duplication — measured, not asserted
+- Clean under `VK_LAYER_KHRONOS_validation`, synchronization validation included
+- When the motion cannot be explained, it shows the real frame rather than a blend
+
+### BAD — Bdex Anomaly Detector
+
+`Python` · `Linux` · `SQLite`
+
+Hardware telemetry at 1 Hz on Linux, to build a labelled dataset and train an
+anomaly detector on it — clogged heatsink, blocked airflow, unstable overclock.
+
+- **Zero mandatory dependency** — `/proc`, `/sys` and the standard library are enough
+- 13 independent readers (k10temp, amdgpu, NVML, NVMe, RAPL, PSI, kmsg…);
+  a missing source disables itself instead of filling the database with nulls
+- **Three-stage** error detection: 38 kernel classification rules declared as
+  data, a catch-all on priorities ≤ 3, and hardware counters that catch what the
+  kernel counts without necessarily logging
+- `--doctor` reports what the machine makes it possible to detect **and what it does not**
+
+### cs2edge — Calibrated CS2 predictions
+
+`Python` · `NumPy`
+
+Probabilistic model of match outcomes, built around a verifiable constraint:
+when it announces 70 %, the team wins roughly 70 times out of 100.
+
+- **NumPy-only core** — ridge logistic regression solved by IRLS, temperature
+  calibration, pipeline written by hand
+- Antisymmetry guaranteed by construction: `p(A beats B) + p(B beats A) = 1` to
+  machine precision
+- **Walk-forward backtest** — a random cross-validation would give far better
+  scores, and entirely false ones
+- **Abstains on 17 % of matches**: a tipster who has an opinion on everything
+  gives you no way to tell convictions from guesses
+- Measurement shaped the product: a tier removed because it lied on 62
+  observations, a marginal recalibrated which brought the gap from +10.5 % down
+  to +2.0 %
+
+### Up Network — ERP / CRM
+
+`NestJS` · `Prisma` · `PostgreSQL` · `React` · `TypeScript`
+
+Multi-company management suite for SMEs, developed over six months during an
+internship: CRM, sales cycle, purchasing & stock, projects, HR and accounting
+reports.
+
+- **10 modules** · **84 permissions** enforced server-side · **34 Prisma
+  models** · **128** unit tests
+- The active company comes from the token, never from the client — no route
+  accepts a `?companyId=`
+- Quote → order → invoice → payment, with credit notes, multi-currency and
+  frozen documents protected by an optimistic lock
+- French regulatory reports: aged balance, VAT by rate, FEC export
+
+
+## Technical stack
+
+| Area | Technologies & concepts |
 | :--- | :--- |
-| **Systems** | C · C++ · Linux · CMake |
-| **Graphics** | Vulkan · GLSL · Compute shaders |
-| **Data & modelling** | Python · NumPy · pandas · SQLite |
-| **Web & backend** | TypeScript · React · NestJS · Node.js · Prisma · PostgreSQL |
+| **Python & data** | **Python** · NumPy · pandas · SQLite · Streamlit |
+| **Artificial intelligence** | **AI · Neural networks** · Probabilistic modelling · Calibration · Walk-forward backtesting |
+| **Systems & graphics** | C · C++ · Vulkan · GLSL compute · Linux · CMake |
+| **Web & backend** | TypeScript · React · NestJS · Node.js · Prisma · PostgreSQL · REST APIs |
 | **Development** | Git · Docker · systemd |
-
-## How I work
-
-- **Measure before claiming.** Compare against a baseline and check what a result actually proves.
-- **Make uncertainty visible.** A missing sensor is not zero; an uncertain prediction should be allowed to abstain.
-- **Explain the limits.** Document what a system can do, where it fails and how to inspect its behaviour.
-
-<br>
-
----
-
-<p align="center">
-  Interested in Linux systems, graphics or applied machine learning?<br>
-  <a href="https://github.com/Bdexez"><strong>Explore my GitHub →</strong></a>
-</p>
