@@ -1,131 +1,87 @@
-<div align="center">
+<p align="center">
+  <img src="./assets/header.svg" width="100%" alt="Elian Marzari — Bdex. Software developer working on systems, real-time graphics and applied machine learning.">
+</p>
 
-# Bdex
-
-**Developer — from the hardware counter to the business API.**
-
-Third-year student at Epitech. I build systems you can measure and models you
-can verify.
+<p align="center">
+  <a href="https://www.linkedin.com/in/elian-marzari/">LinkedIn</a>
+  &nbsp; · &nbsp;
+  <a href="#selected-work">Selected work</a>
+  &nbsp; · &nbsp;
+  <a href="#toolbox">Toolbox</a>
+</p>
 
 <br>
 
-![C](https://img.shields.io/badge/C-00599C?logo=c&logoColor=white)
-![C++](https://img.shields.io/badge/C++-00599C?logo=cplusplus&logoColor=white)
-![Vulkan](https://img.shields.io/badge/Vulkan-AC162C?logo=vulkan&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
-![NestJS](https://img.shields.io/badge/NestJS-E0234E?logo=nestjs&logoColor=white)
-![React](https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=black)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?logo=postgresql&logoColor=white)
-![Linux](https://img.shields.io/badge/Arch%20Linux-1793D1?logo=archlinux&logoColor=white)
+I'm **Elian**, a third-year student at **Epitech**. I build software across Linux systems, real-time graphics, applied machine learning and full-stack applications.
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-elian--marzari-0A66C2?logo=linkedin&logoColor=white)](https://linkedin.com/in/elian-marzari)
+I like understanding the whole path: how a frame reaches the display, how a sensor becomes useful data, and how a backend keeps a business workflow consistent.
 
-</div>
+## Selected work
 
----
+<sub>The projects below are currently private. These summaries highlight their engineering focus.</sub>
 
-## 🧭 What runs through my projects
+<br><br>
 
-One rule, from the lowest level up to the data: **never invent what you haven't
-measured.** A missing sensor is not zero, it is `NULL`. A model that announces
-70 % has to win 70 times out of 100, and prove it. A repository that doesn't
-list its limitations is hiding some.
+<table>
+<tr>
+<td width="50%" valign="top">
+<sub>01 / REAL-TIME GRAPHICS</sub>
+<h3>bdex-framegen</h3>
+<p><strong>Frame generation for Vulkan games on Linux.</strong></p>
+<p>An implicit Vulkan layer that estimates motion and synthesizes intermediate frames without changing the game.</p>
+<p>Virtual swapchain, GPU compute shaders and dedicated presentation threading.</p>
+<p><code>C++20</code> <code>Vulkan</code> <code>GLSL</code> <code>Linux</code></p>
+</td>
+<td width="50%" valign="top">
+<sub>02 / SYSTEMS &amp; TELEMETRY</sub>
+<h3>BAD · Bdex Anomaly Detector</h3>
+<p><strong>Hardware telemetry with detection limits made explicit.</strong></p>
+<p>A Linux collector for building labelled datasets and developing hardware anomaly detection.</p>
+<p>Independent sensor readers, kernel error classification and diagnostics for missing sources.</p>
+<p><code>Python</code> <code>SQLite</code> <code>procfs</code> <code>sysfs</code></p>
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+<sub>03 / APPLIED MACHINE LEARNING</sub>
+<h3>cs2edge</h3>
+<p><strong>CS2 match predictions built around calibration.</strong></p>
+<p>A probabilistic model that estimates match outcomes, evaluates its predictions and can abstain when confidence is insufficient.</p>
+<p>Logistic regression, probability calibration and chronological walk-forward backtesting.</p>
+<p><code>Python</code> <code>NumPy</code> <code>Statistics</code></p>
+</td>
+<td width="50%" valign="top">
+<sub>04 / FULL-STACK DEVELOPMENT</sub>
+<h3>Up Network</h3>
+<p><strong>A multi-company ERP / CRM for SMEs.</strong></p>
+<p>Built during a six-month internship: customer management, sales, purchasing, inventory and business reporting.</p>
+<p>Server-side permissions, company isolation and a quote-to-payment workflow.</p>
+<p><code>TypeScript</code> <code>NestJS</code> <code>React</code> <code>PostgreSQL</code></p>
+</td>
+</tr>
+</table>
 
----
+## Toolbox
 
-## 🔧 Projects
+| Area | Technologies |
+| :--- | :--- |
+| **Systems** | C · C++ · Linux · CMake |
+| **Graphics** | Vulkan · GLSL · Compute shaders |
+| **Data & modelling** | Python · NumPy · pandas · SQLite |
+| **Web & backend** | TypeScript · React · NestJS · Node.js · Prisma · PostgreSQL |
+| **Development** | Git · Docker · systemd |
 
-### 🎞️ [bdex-framegen — frame generation for Vulkan](https://github.com/Bdexez/bdex_frame_gen)
+## How I work
 
-`C++20` · `Vulkan` · `GLSL` · `Linux`
+- **Measure before claiming.** Compare against a baseline and check what a result actually proves.
+- **Make uncertainty visible.** A missing sensor is not zero; an uncertain prediction should be allowed to abstain.
+- **Explain the limits.** Document what a system can do, where it fails and how to inspect its behaviour.
 
-An implicit Vulkan layer that turns 30 rendered fps into 60, 90 or 120 displayed
-fps, on any Vulkan game — native, or Direct3D through DXVK / VKD3D-Proton. No
-change to the game.
-
-- **Virtual swapchain**: the game renders into private images, the layer owns the
-  real swapchain and decides what to present and when
-- **The game is never blocked** — `vkQueuePresentKHR` costs it ≈ 0.1 ms; the
-  synthesis runs on a dedicated thread and a separate compute queue
-- Five compute shaders, no CPU round trip: luma pyramid, hierarchical block
-  matching, median filter, 4×4 refinement, bidirectional warping
-- **≈ 30 dB PSNR** against the real frame, against ≈ 25 dB for a blend and
-  ≈ 22 dB for frame duplication — measured, not asserted
-- Clean under `VK_LAYER_KHRONOS_validation`, synchronization validation included
-- When the motion cannot be explained, it shows the real frame rather than a blend
-
-### 🩺 [BAD — Bdex Anomaly Detector](https://github.com/Bdexez/BAD_-Bdex_Anomaly_Detector-)
-
-`Python` · `Linux` · `SQLite`
-
-Hardware telemetry at 1 Hz on Linux, to build a labelled dataset and train an
-anomaly detector on it — clogged heatsink, blocked airflow, unstable overclock.
-
-- **Zero mandatory dependency** — `/proc`, `/sys` and the standard library are enough
-- 13 independent readers (k10temp, amdgpu, NVML, NVMe, RAPL, PSI, kmsg…);
-  a missing source disables itself instead of filling the database with nulls
-- **Three-stage** error detection: 38 kernel classification rules declared as
-  data, a catch-all on priorities ≤ 3, and hardware counters that catch what the
-  kernel counts without necessarily logging
-- `--doctor` reports what the machine makes it possible to detect **and what it does not**
-
-### 🎯 [cs2edge — calibrated tipster](https://github.com/Bdexez/CS_S)
-
-`Python` · `NumPy`
-
-Probabilistic model of match outcomes, built around a verifiable constraint:
-when it announces 70 %, the team wins roughly 70 times out of 100.
-
-- **NumPy-only core** — ridge logistic regression solved by IRLS, temperature
-  calibration, pipeline written by hand
-- Antisymmetry guaranteed by construction: `p(A beats B) + p(B beats A) = 1` to
-  machine precision
-- **Walk-forward backtest** — a random cross-validation would give far better
-  scores, and entirely false ones
-- **Abstains on 17 % of matches**: a tipster who has an opinion on everything
-  gives you no way to tell convictions from guesses
-- Measurement shaped the product: a tier removed because it lied on 62
-  observations, a marginal recalibrated which brought the gap from +10.5 % down
-  to +2.0 %
-
-### 🏢 [Up Network — ERP / CRM](https://github.com/Bdexez/up_network2.0)
-
-`NestJS` · `Prisma` · `PostgreSQL` · `React` · `TypeScript`
-
-Multi-company management suite for SMEs, developed over six months during an
-internship: CRM, sales cycle, purchasing & stock, projects, HR and accounting
-reports.
-
-- **10 modules** · **84 permissions** enforced server-side · **34 Prisma
-  models** · **128** unit tests
-- The active company comes from the token, never from the client — no route
-  accepts a `?companyId=`
-- Quote → order → invoice → payment, with credit notes, multi-currency and
-  frozen documents protected by an optimistic lock
-- French regulatory reports: aged balance, VAT by rate, FEC export
+<br>
 
 ---
 
-## 🛠️ Stack
-
-| | |
-|---|---|
-| **Languages** | C · C++ · x86-64 · Python · TypeScript · SQL · Dart |
-| **Graphics** | Vulkan · GLSL compute · Vulkan layers · CMake |
-| **Backend** | NestJS · Node.js · Prisma · PostgreSQL · SQLite · REST · OpenAPI |
-| **Front** | React · Vite · Flutter |
-| **Data** | NumPy · pandas · calibration · walk-forward backtest · Streamlit |
-| **Systems** | Linux · sysfs/procfs · systemd · Docker · Git |
-
----
-
-## 📍 Right now
-
-I'm polishing **bdex-framegen** on real games, working on the model stage of
-**BAD** and feeding real data into **cs2edge**. Happy to talk about low-level
-Linux, Vulkan, probabilistic modelling and anything to do with measurement.
-
-<div align="center">
-<sub>📫 <a href="https://linkedin.com/in/elian-marzari">LinkedIn</a></sub>
-</div>
+<p align="center">
+  Interested in Linux systems, graphics or applied machine learning?<br>
+  <a href="https://www.linkedin.com/in/elian-marzari/"><strong>Let's connect on LinkedIn →</strong></a>
+</p>

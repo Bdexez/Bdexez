@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="400" viewBox="0 0 1280 400" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">Elian Marzari — Bdex</title>
+  <desc id="desc">Software developer. Systems, real-time graphics and applied machine learning. A sequence of three frames illustrates motion interpolation.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1280" y2="400" gradientUnits="userSpaceOnUse"><stop stop-color="#101D2B"/><stop offset="1" stop-color="#0B111A"/></linearGradient>
+    <linearGradient id="panel" x1="816" y1="96" x2="1190" y2="300" gradientUnits="userSpaceOnUse"><stop stop-color="#162C38"/><stop offset="1" stop-color="#101C29"/></linearGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" stroke="#6A9CA7" stroke-opacity=".11"/></pattern>
+    <clipPath id="clip"><rect width="1280" height="400" rx="20"/></clipPath>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="1280" height="400" rx="20" fill="url(#bg)"/>
+    <rect x="780" width="500" height="400" fill="url(#grid)"/>
+    <path d="M780 0V400" stroke="#243442"/>
+    <path d="M0 399H1280" stroke="#263A47"/>
+    <rect x="52" y="50" width="6" height="17" rx="3" fill="#7EE7C4"/>
+    <text x="72" y="64" fill="#A7BCC9" font-family="DejaVu Sans, sans-serif" font-size="14" letter-spacing="3">BDEX / SOFTWARE DEVELOPER</text>
+    <text x="52" y="159" fill="#F0F6FC" font-family="DejaVu Sans, sans-serif" font-size="63" font-weight="700" letter-spacing="-2.5">Elian Marzari<tspan fill="#7EE7C4">.</tspan></text>
+    <text x="55" y="209" fill="#AFBFCD" font-family="DejaVu Sans, sans-serif" font-size="23">Systems. Graphics. Applied machine learning.</text>
+    <path d="M54 250H716" stroke="#2A3B49"/>
+    <text x="55" y="291" fill="#7EE7C4" font-family="DejaVu Sans Mono, monospace" font-size="15">C / C++</text>
+    <text x="197" y="291" fill="#8599AA" font-family="DejaVu Sans Mono, monospace" font-size="15">VULKAN</text>
+    <text x="330" y="291" fill="#8599AA" font-family="DejaVu Sans Mono, monospace" font-size="15">PYTHON</text>
+    <text x="463" y="291" fill="#8599AA" font-family="DejaVu Sans Mono, monospace" font-size="15">TYPESCRIPT</text>
+    <text x="55" y="354" fill="#728799" font-family="DejaVu Sans, sans-serif" font-size="13" letter-spacing="1.8">EPITECH · THIRD YEAR</text>
+    <text x="816" y="64" fill="#728F9F" font-family="DejaVu Sans Mono, monospace" font-size="12" letter-spacing="2">BETWEEN TWO FRAMES</text>
+    <rect x="815" y="113" width="140" height="147" rx="12" fill="url(#panel)" stroke="#385565"/>
+    <path d="M831 235H938M831 211H938M831 187H938M831 163H938" stroke="#31505E" stroke-opacity=".5"/>
+    <path d="M852 219V178L879 163L906 178V219L879 235L852 219Z" fill="#203A4A" stroke="#6E9EB5" stroke-width="1.5"/>
+    <path d="M852 178L879 194L906 178M879 194V235" stroke="#6E9EB5" stroke-width="1.5"/>
+    <rect x="942" y="96" width="150" height="181" rx="12" fill="#122D2D" stroke="#7EE7C4" stroke-width="1.5"/>
+    <path d="M958 249H1076M958 225H1076M958 201H1076M958 177H1076M958 153H1076" stroke="#416F62" stroke-opacity=".45"/>
+    <path d="M986 208V167L1013 152L1040 167V208L1013 224L986 208Z" fill="#234E42" stroke="#7EE7C4" stroke-width="2"/>
+    <path d="M986 167L1013 183L1040 167M1013 183V224" stroke="#7EE7C4" stroke-width="2"/>
+    <circle cx="1017" cy="256" r="3" fill="#7EE7C4"/>
+    <rect x="1079" y="113" width="140" height="147" rx="12" fill="url(#panel)" stroke="#385565"/>
+    <path d="M1095 235H1202M1095 211H1202M1095 187H1202M1095 163H1202" stroke="#31505E" stroke-opacity=".5"/>
+    <path d="M1120 198V157L1147 142L1174 157V198L1147 214L1120 198Z" fill="#203A4A" stroke="#6E9EB5" stroke-width="1.5"/>
+    <path d="M1120 157L1147 173L1174 157M1147 173V214" stroke="#6E9EB5" stroke-width="1.5"/>
+    <text x="856" y="305" fill="#8CA5B5" font-family="DejaVu Sans Mono, monospace" font-size="11">RENDERED</text>
+    <text x="977" y="305" fill="#7EE7C4" font-family="DejaVu Sans Mono, monospace" font-size="11">GENERATED</text>
+    <text x="1120" y="305" fill="#8CA5B5" font-family="DejaVu Sans Mono, monospace" font-size="11">RENDERED</text>
+    <path d="M817 343H1218" stroke="#2A424F" stroke-dasharray="3 5"/>
+    <circle cx="817" cy="343" r="3" fill="#6E9EB5"/><circle cx="1017" cy="343" r="4" fill="#7EE7C4"/><circle cx="1218" cy="343" r="3" fill="#6E9EB5"/>
+  </g>
+</svg>
