@@ -1,9 +1,9 @@
 <p align="center">
-  <img src="./assets/header.svg" width="100%" alt="Elian Marzari — Bdex. Software developer working with Python, AI, neural networks, systems and real-time graphics.">
+  <img src="./assets/header.svg?v=3" width="100%" alt="Bdex. Software developer working with Python, AI, neural networks, systems and real-time graphics.">
 </p>
 
 <p align="center">
-  <a href="https://www.linkedin.com/in/elian-marzari/">LinkedIn</a>
+  <a href="https://github.com/Bdexez">GitHub</a>
   &nbsp; · &nbsp;
   <a href="#selected-work">Selected work</a>
   &nbsp; · &nbsp;
@@ -12,7 +12,7 @@
 
 <br>
 
-I'm **Elian**, a developer working with **Python, artificial intelligence and neural networks**, alongside **C/C++**, Linux systems, real-time graphics and full-stack applications.
+I'm **Bdex**, a developer working with **Python, artificial intelligence and neural networks**, alongside **C/C++**, Linux systems, real-time graphics and full-stack applications.
 
 I like understanding the whole path: how a frame reaches the display, how a sensor becomes useful data, and how a backend keeps a business workflow consistent.
 
@@ -83,5 +83,5 @@ I like understanding the whole path: how a frame reaches the display, how a sens
 
 <p align="center">
   Interested in Linux systems, graphics or applied machine learning?<br>
-  <a href="https://www.linkedin.com/in/elian-marzari/"><strong>Let's connect on LinkedIn →</strong></a>
+  <a href="https://github.com/Bdexez"><strong>Explore my GitHub →</strong></a>
 </p>
