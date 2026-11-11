@@ -26,7 +26,7 @@ My work ranges from implementing learning algorithms and building AI assistants 
 | [**bdex Game Engine**](https://github.com/Bdexez/bdex_game_engine) | Modular 3D engine, ECS and Vulkan rendering | Public |
 | [**CHIMERA**](https://github.com/Bdexez/Neural_Network_November) | Multimodal neural network for text, vision and time series | Public · experimental |
 | [**Sensai**](#sensai--local-ai-tutor-and-study-assistant) | Local LLM tutor, RAG and learning agents | Private |
-| [**MyTorch**](#mytorch--neural-network-library-from-scratch) | Neural-network fundamentals in Python and NumPy | Private · in progress |
+| [**MyTorch**](#mytorch--neural-network-library-from-scratch) | Neural-network fundamentals in Python and NumPy | Private |
 | [**cs2edge**](https://github.com/Bdexez/Cs2edge) | Probabilistic CS2 modelling and calibration | Public |
 | [**BAD**](https://github.com/Bdexez/BAD_-Bdex_Anomaly_Detector-) | Linux telemetry and labelled anomaly datasets | Public |
 | [**Up Network**](#up-network--multi-company-erp--crm) | Multi-company ERP / CRM | Private |
@@ -87,7 +87,7 @@ A language-learning assistant available in the terminal and through its **Duolin
 
 ### MyTorch — Neural-network library from scratch
 
-`Python` · `NumPy` · `Neural networks` · **In progress**
+`Python` · `NumPy` · `Neural networks` · 
 
 A neural-network library implemented from first principles to deepen my understanding of machine learning. The focus is on implementing the underlying mechanisms and understanding how models are built and evaluated.
 
