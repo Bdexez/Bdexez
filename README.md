@@ -26,7 +26,7 @@ My work ranges from implementing learning algorithms and building AI assistants 
 | [**bdex Game Engine**](https://github.com/Bdexez/bdex_game_engine) | Modular 3D engine, ECS and Vulkan rendering | Public |
 | [**CHIMERA**](https://github.com/Bdexez/Neural_Network_November) | Multimodal neural network for text, vision and time series | Public · experimental |
 | [**Sensai**](#sensai--local-ai-tutor-and-study-assistant) | Local LLM tutor, RAG and learning agents | Private |
-| [**MyTorch**](#mytorch--neural-network-library-from-scratch) | Neural-network fundamentals in Python and NumPy | Private |
+| [**MyTorch**](#mytorch--neural-network-library-and-chess-analyzer-in-c17) | C17 neural-network library, chess analysis and learning demos | Private · completed |
 | [**cs2edge**](https://github.com/Bdexez/Cs2edge) | Probabilistic CS2 modelling and calibration | Public |
 | [**BAD**](https://github.com/Bdexez/BAD_-Bdex_Anomaly_Detector-) | Linux telemetry and labelled anomaly datasets | Public |
 | [**Up Network**](#up-network--multi-company-erp--crm) | Multi-company ERP / CRM | Private |
@@ -85,13 +85,17 @@ A language-learning assistant available in the terminal and through its **Duolin
 - **Persistent learning memory:** SQLite stores sessions, vocabulary, recurring mistakes and spaced-repetition progress.
 - **Agent capabilities:** a ReAct loop can read permitted files, prepare materials and test generated Python exercises, with action confirmations, execution limits and observability.
 
-### MyTorch — Neural-network library from scratch
+### MyTorch — Neural-network library and chess analyzer in C17
 
-`Python` · `NumPy` · `Neural networks` · 
+`C17` · `Neural networks` · `Backpropagation` · `Adam` · **Completed**
 
-A neural-network library implemented from first principles to deepen my understanding of machine learning. The focus is on implementing the underlying mechanisms and understanding how models are built and evaluated.
+A completed C17 implementation of a neural-network library, a chess-position classifier and AND/XOR/tic-tac-toe learning demos. Forward propagation, backpropagation, Adam optimization, data generation and SVG plots are implemented in C, with shell scripts automating the workflow. The reusable API is packaged as `libmytorch.a`.
 
-This work combines **Python/NumPy implementation** with study of the machine-learning literature. It is an ongoing project focused on neural-network fundamentals, alongside my application-oriented AI projects.
+- **Configurable learning core:** multilayer networks, ReLU/tanh/sigmoid hidden activations, softmax or sigmoid outputs, mini-batch training, L2 regularization and early stopping. Optional CBLAS accelerates matrix products, with a built-in C fallback.
+- **Chess analysis:** parses six-field FEN positions and classifies `Nothing`, `Check` and `Checkmate`; output also identifies the side giving check or mate.
+- **Reproducible evaluation:** normalized positions are deduplicated before a stratified 70/15/15 training/validation/test split. The project benchmark reports **100% accuracy on its 16,044-position held-out chess test set**.
+- **Learning demonstrations:** a perceptron for AND, a multilayer network for XOR and a tic-tac-toe classifier built from all **5,478 legal board states**, with separate data partitions.
+- **Engineering and validation:** atomic model serialization, hyperparameter search, CSV/SVG reports, numerical gradient checks and CLI tests, plus AddressSanitizer and UndefinedBehaviorSanitizer build targets.
 
 ### cs2edge — Calibrated CS2 match prediction
 
@@ -140,8 +144,8 @@ A management suite for SMEs, developed during a six-month internship. It covers 
 | **Python** | Python · NumPy · PyTorch · pandas · SQLite · Streamlit |
 | **Artificial intelligence** | Neural networks · Multimodal learning · Mixture of Experts · Machine learning · Probabilistic modelling · Calibration · Walk-forward evaluation |
 | **LLMs & agents** | Ollama · RAG · Embeddings · BM25 · Reranking · ReAct · Context management |
-| **Systems & graphics** | C · C++20/23 · Vulkan · GLSL compute · ECS · Linux · CMake |
+| **Systems & graphics** | C17 · C++20/23 · Vulkan · GLSL compute · ECS · Linux · CMake |
 | **Web & backend** | TypeScript · React · NestJS · Node.js · Prisma · PostgreSQL · REST APIs |
-| **Tools** | Git · Docker · systemd |
+| **Tools** | Git · Docker · systemd · Make · AddressSanitizer · UndefinedBehaviorSanitizer |
 
 <sub>Public projects link directly to their source repositories. Sensai, MyTorch and Up Network are presented here with private source code.</sub>
