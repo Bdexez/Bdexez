@@ -26,7 +26,7 @@ My work ranges from implementing learning algorithms and building AI assistants 
 | [**bdex Game Engine**](https://github.com/Bdexez/bdex_game_engine) | Modular 3D engine, ECS and Vulkan rendering | Public |
 | [**CHIMERA**](https://github.com/Bdexez/Neural_Network_November) | Multimodal neural network for text, vision and time series | Public · experimental |
 | [**Sensai**](#sensai--local-ai-tutor-and-study-assistant) | Local LLM tutor, RAG and learning agents | Private |
-| [**MyTorch**](#mytorch--neural-network-library-and-chess-analyzer-in-c17) | C17 neural-network library, chess analysis and learning demos | Private · completed |
+| [**MyTorch**](#mytorch--neural-network-library-and-chess-analyzer-in-c17) | C17 neural-network library, chess analysis and learning demos | Private |
 | [**cs2edge**](https://github.com/Bdexez/Cs2edge) | Probabilistic CS2 modelling and calibration | Public |
 | [**BAD**](https://github.com/Bdexez/BAD_-Bdex_Anomaly_Detector-) | Linux telemetry and labelled anomaly datasets | Public |
 | [**Up Network**](#up-network--multi-company-erp--crm) | Multi-company ERP / CRM | Private |
@@ -87,7 +87,7 @@ A language-learning assistant available in the terminal and through its **Duolin
 
 ### MyTorch — Neural-network library and chess analyzer in C17
 
-`C17` · `Neural networks` · `Backpropagation` · `Adam` · **Completed**
+`C17` · `Neural networks` · `Backpropagation` · `Adam` 
 
 A completed C17 implementation of a neural-network library, a chess-position classifier and AND/XOR/tic-tac-toe learning demos. Forward propagation, backpropagation, Adam optimization, data generation and SVG plots are implemented in C, with shell scripts automating the workflow. The reusable API is packaged as `libmytorch.a`.
 
